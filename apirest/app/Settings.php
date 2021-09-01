@@ -25,7 +25,7 @@ class Settings implements SettingsInterface
             'logger' => [
                 'name' => 'slim-app',
                 'level' => Logger::DEBUG,
-                'slack.webhook' => 'https://hooks.slack.com/services/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'
+                'slack.webhook' => ''
             ],
             'db' => [
                 'driver' => 'mysql',
