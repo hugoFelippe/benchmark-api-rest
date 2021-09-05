@@ -6,12 +6,14 @@ use App\SettingsInterface;
 use Monolog\Handler\SlackWebhookHandler;
 use Monolog\Logger as MonologLogger;
 
-class Logger extends MonologLogger
+class Logger
 {
     /**
      * @var SettingsInterface
      */
     protected $settings;
+
+    protected $logger;
 
     public function __constructor(SettingsInterface $settings)
     {
@@ -31,6 +33,11 @@ class Logger extends MonologLogger
         $handlers = [$slack];
         $processors = [];
 
-        parent::__construct($this->settings['name'], $handlers, $processors);
+        $this->logger = new MonologLogger($this->settings['name'], $handlers, $processors);
+    }
+
+    public function get(): ?MonologLogger
+    {
+        return $this->logger;
     }
 }

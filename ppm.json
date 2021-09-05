@@ -7,7 +7,7 @@
     "debug": 0,
     "logging": 0,
     "static": true,
-    "bootstrap": "App\\PPM\\Bootstrap",
+    "bootstrap": "App\\Application",
     "max-requests": 1000,
     "concurrent-requests": true,
     "socket-path": ".ppm\/run\/",

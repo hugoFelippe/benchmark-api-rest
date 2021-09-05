@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Dependencies\Logger;
+use Monolog\Logger;
 
 class Settings implements SettingsInterface
 {
@@ -18,10 +18,10 @@ class Settings implements SettingsInterface
     public function __construct()
     {
         $this->settings = [
+            'slim.error.display_details' => true,
+            'slim.error.log' => false,
+            'slim.error.log_details' => false,
             'dbDev' => false,
-            'displayErrorDetails' => true, // Should be set to false in production
-            'logError'            => false,
-            'logErrorDetails'     => false,
             'logger' => [
                 'name' => 'slim-app',
                 'level' => Logger::DEBUG,

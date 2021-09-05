@@ -2,25 +2,19 @@
     "name": "hugofelippe/apirest",
     "type": "project",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Events\\": "events/",
-            "Lib\\": "lib/",
-            "Middleware\\": "middleware/",
-            "Routes\\": "routes/",
-            "Tests\\": "tests/"
-        }
-    },
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Hugo Felippe de Souza Cruz",
             "email": "hfelipecruz07@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "config": {
+        "platform":{
+            "php":"7.4"
+        }
+    },
     "require": {
-        "php": "^7.4.15",
         "lcobucci/jwt": "^4.1",
         "mobiledetect/mobiledetectlib": "^2.8",
         "monolog/monolog": "^2.3",
@@ -32,7 +26,20 @@
         "vlucas/valitron": "^1.4",
         "php-pm/php-pm": "^2.2"
     },
+    "require-dev": {
+        "pestphp/pest": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Events\\": "events/",
+            "Lib\\": "lib/",
+            "Middleware\\": "middleware/",
+            "Routes\\": "routes/",
+            "Tests\\": "tests/"
+        }
+    },
     "scripts": {
-        "serve": "php -S 0.0.0.0:8080 server.php -t ./"
+        "serve": "php -S 0.0.0.0:8000 server.php -t ./"
     }
 }

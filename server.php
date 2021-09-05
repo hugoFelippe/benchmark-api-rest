@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Application;
 use App\Standalone\ResponseEmitter;
 use Slim\Factory\ServerRequestCreatorFactory;
 
@@ -11,10 +12,11 @@ require __DIR__ . '/vendor/autoload.php';
 $serverRequestCreator = ServerRequestCreatorFactory::create();
 $request = $serverRequestCreator->createServerRequestFromGlobals();
 
-$app = require __DIR__ . '/app/app.php';
-$app = $app();
+// Create App
+$application = new Application();
+$application->initialize('prod', true);
 
 // Run App & Emit Response
-$response = $app->handle($request);
+$response = $application->handle($request);
 $responseEmitter = new ResponseEmitter();
 $responseEmitter->emit($response);
