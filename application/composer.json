@@ -24,7 +24,8 @@
         "slim/psr7": "^1.4",
         "slim/slim": "^4.8",
         "vlucas/valitron": "^1.4",
-        "php-pm/php-pm": "^2.2"
+        "php-pm/php-pm": "^2.2",
+        "vlucas/phpdotenv": "^5.3"
     },
     "require-dev": {
         "pestphp/pest": "^1.18"
@@ -40,6 +41,6 @@
         }
     },
     "scripts": {
-        "serve": "php -S 0.0.0.0:8000 server.php -t ./"
+        "serve": "php -S 0.0.0.0:8000 public/server.php -t ./"
     }
 }
