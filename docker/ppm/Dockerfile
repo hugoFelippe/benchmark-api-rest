@@ -23,6 +23,6 @@ ADD application /var/www
 WORKDIR /var/www
 
 ENTRYPOINT ["/bin/bash", "/etc/ppm/run.sh"]
+# ENTRYPOINT ["/bin/bash"]
 
 EXPOSE 80
-# ENTRYPOINT ["/bin/bash"]
