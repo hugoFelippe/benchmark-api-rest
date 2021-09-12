@@ -3,9 +3,9 @@ concurrency="5"
 scale_list="1 2 4 8 16 32 64 128 256 512 1024"
 workload_list="10 20 40 80"
 
-docker run --rm -d -p 81:80/tcp benchmark:nginx
-docker run --rm -d -p 82:80/tcp benchmark:hybrid
-docker run --rm -d -p 83:80/tcp benchmark:ppm
+container_nginx=$(docker run --rm -d -p 81:80/tcp benchmark:nginx)
+container_hybrid=$(docker run --rm -d -p 82:80/tcp benchmark:hybrid)
+container_ppm=$(docker run --rm -d -p 83:80/tcp benchmark:ppm)
 
 for workload in workload_list; do
     mkdir -p $DIR/result/workload/nginx/$workload
