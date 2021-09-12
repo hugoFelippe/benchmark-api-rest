@@ -6,7 +6,6 @@
     "app-env": "prod",
     "debug": 0,
     "logging": 0,
-    "static": true,
     "bootstrap": "App\\Application",
     "max-requests": 1000,
     "concurrent-requests": true,

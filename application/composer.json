@@ -25,7 +25,8 @@
         "slim/slim": "^4.8",
         "vlucas/valitron": "^1.4",
         "php-pm/php-pm": "^2.2",
-        "vlucas/phpdotenv": "^5.3"
+        "vlucas/phpdotenv": "^5.3",
+        "react/mysql": "^0.5.5"
     },
     "require-dev": {
         "pestphp/pest": "^1.18"

@@ -1,0 +1,15 @@
+{
+    "bridge": "App\\PPM\\Adapter",
+    "host": "127.0.0.1",
+    "port": 8080,
+    "workers": 8,
+    "app-env": "prod",
+    "debug": 0,
+    "logging": 0,
+    "bootstrap": "App\\Application",
+    "max-requests": 1000,
+    "concurrent-requests": true,
+    "socket-path": ".ppm\/run\/",
+    "pidfile": ".ppm\/ppm.pid",
+    "cgi-path": "/usr/bin/php-cgi7"
+}
