@@ -7,67 +7,64 @@ docker run --rm -d -p 81:80/tcp benchmark:nginx
 docker run --rm -d -p 82:80/tcp benchmark:hybrid
 docker run --rm -d -p 83:80/tcp benchmark:ppm
 
-for wkload in workload_list; do
-    mkdir -p $DIR/result/workload/nginx/$wkload
-    cd $DIR/result/workload/nginx/$wkload
+for workload in workload_list; do
+    mkdir -p $DIR/result/workload/nginx/$workload
+    cd $DIR/result/workload/nginx/$workload
 
-    echo "Start nginx $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:81/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:81/hash-snefru > hash_snefru_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_ghost.txt http://localhost:81/hash-ghost > hash_ghost_result.txt 2>&1
-    # ab -k -n $wkload -c $concurrency -g sleep.txt http://localhost:81/sleep > sleep_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g stream.txt http://localhost:81/stream > stream_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g random.txt http://localhost:81/random > random_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g big_stream.txt http://localhost:81/big-stream > big_stream_result.txt 2>&1
+    echo "Start nginx $workload/$concurrency"
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:81/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:81/hash-snefru > hash_snefru_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_ghost.txt http://localhost:81/hash-ghost > hash_ghost_result.txt 2>&1
+    # ab -k -n $workload -c $concurrency -g sleep.txt http://localhost:81/sleep > sleep_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g stream.txt http://localhost:81/stream > stream_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g random.txt http://localhost:81/random > random_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g big_stream.txt http://localhost:81/big-stream > big_stream_result.txt 2>&1
 done
 
-for wkload in workload_list; do
-    mkdir -p $DIR/result/workload/hybrid/$wkload
-    cd $DIR/result/workload/hybrid/$wkload
+for workload in workload_list; do
+    mkdir -p $DIR/result/workload/hybrid/$workload
+    cd $DIR/result/workload/hybrid/$workload
 
-    echo "Start hybrid $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:82/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:82/hash-snefru > hash_snefru_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_ghost.txt http://localhost:82/hash-ghost > hash_ghost_result.txt 2>&1
-    # ab -k -n $wkload -c $concurrency -g sleep.txt http://localhost:82/sleep > sleep_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g stream.txt http://localhost:82/stream > stream_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g random.txt http://localhost:82/random > random_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g big_stream.txt http://localhost:82/big-stream > big_stream_result.txt 2>&1
+    echo "Start hybrid $workload/$concurrency"
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:82/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:82/hash-snefru > hash_snefru_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_ghost.txt http://localhost:82/hash-ghost > hash_ghost_result.txt 2>&1
+    # ab -k -n $workload -c $concurrency -g sleep.txt http://localhost:82/sleep > sleep_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g stream.txt http://localhost:82/stream > stream_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g random.txt http://localhost:82/random > random_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g big_stream.txt http://localhost:82/big-stream > big_stream_result.txt 2>&1
 done
 
-for wkload in workload_list; do
-    mkdir -p $DIR/result/workload/ppm/$wkload
-    cd $DIR/result/workload/ppm/$wkload
+for workload in workload_list; do
+    mkdir -p $DIR/result/workload/ppm/$workload
+    cd $DIR/result/workload/ppm/$workload
 
-    echo "Start ppm $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:83/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:83/hash-snefru > hash_snefru_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_ghost.txt http://localhost:83/hash-ghost > hash_ghost_result.txt 2>&1
-    # ab -k -n $wkload -c $concurrency -g sleep.txt http://localhost:83/sleep > sleep_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g stream.txt http://localhost:83/stream > stream_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g random.txt http://localhost:83/random > random_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g big_stream.txt http://localhost:83/big-stream > big_stream_result.txt 2>&1
+    echo "Start ppm $workload/$concurrency"
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:83/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:83/hash-snefru > hash_snefru_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_ghost.txt http://localhost:83/hash-ghost > hash_ghost_result.txt 2>&1
+    # ab -k -n $workload -c $concurrency -g sleep.txt http://localhost:83/sleep > sleep_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g stream.txt http://localhost:83/stream > stream_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g random.txt http://localhost:83/random > random_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g big_stream.txt http://localhost:83/big-stream > big_stream_result.txt 2>&1
 done
 
-for wkload in $scale_list; do
-    mkdir -p $DIR/result/scale/nginx/$wkload
-    cd $DIR/result/scale/nginx/$wkload
+for workload in $scale_list; do
+    echo "Start scale $workload/$concurrency"
 
-    echo "Start scale nginx $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:81/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:81/hash-snefru > hash_snefru_result.txt 2>&1
 
-    mkdir -p $DIR/result/scale/hybrid/$wkload
-    cd $DIR/result/scale/hybrid/$wkload
+    mkdir -p $DIR/result/scale/nginx/$workload
+    cd $DIR/result/scale/nginx/$workload
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:81/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:81/hash-snefru > hash_snefru_result.txt 2>&1
 
-    echo "Start scale hybrid $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:82/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:82/hash-snefru > hash_snefru_result.txt 2>&1
+    mkdir -p $DIR/result/scale/hybrid/$workload
+    cd $DIR/result/scale/hybrid/$workload
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:82/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:82/hash-snefru > hash_snefru_result.txt 2>&1
 
-    mkdir -p $DIR/result/scale/ppm/$wkload
-    cd $DIR/result/scale/ppm/$wkload
-
-    echo "Start scale ppm $wkload/$concurrency"
-    ab -k -n $wkload -c $concurrency -g basic.txt http://localhost:83/basic > basic_result.txt 2>&1
-    ab -k -n $wkload -c $concurrency -g hash_snefru.txt http://localhost:83/hash-snefru > hash_snefru_result.txt 2>&1
+    mkdir -p $DIR/result/scale/ppm/$workload
+    cd $DIR/result/scale/ppm/$workload
+    ab -k -n $workload -c $concurrency -g basic.txt http://localhost:83/basic > basic_result.txt 2>&1
+    ab -k -n $workload -c $concurrency -g hash_snefru.txt http://localhost:83/hash-snefru > hash_snefru_result.txt 2>&1
 done
