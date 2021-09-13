@@ -13,3 +13,11 @@ docker run --rm -d -p 82:80/tcp benchmark:hybrid
 docker run --rm -d -p 83:80/tcp benchmark:ppm
 
 ```
+
+# Carga
+
+![image info](./assets/carga.png)
+
+# Concorrência
+
+![image info](./assets/concorrencia.png)
