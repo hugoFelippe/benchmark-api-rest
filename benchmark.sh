@@ -80,14 +80,17 @@ for workload in $scale_list; do
     mkdir -p $DIR/result/concurrency/nginx/$workload
     cd $DIR/result/concurrency/nginx/$workload
     ab -q -k -n $workload -c $workload -g basic.txt http://localhost:81/basic > basic_result.txt 2>&1
+    ab -q -k -n $workload -c $workload -g hash_snefru.txt http://localhost:81/hash-snefru > hash_snefru_result.txt 2>&1
 
     mkdir -p $DIR/result/concurrency/hybrid/$workload
     cd $DIR/result/concurrency/hybrid/$workload
     ab -q -k -n $workload -c $workload -g basic.txt http://localhost:82/basic > basic_result.txt 2>&1
+    ab -q -k -n $workload -c $workload -g hash_snefru.txt http://localhost:82/hash-snefru > hash_snefru_result.txt 2>&1
 
     mkdir -p $DIR/result/concurrency/ppm/$workload
     cd $DIR/result/concurrency/ppm/$workload
     ab -q -k -n $workload -c $workload -g basic.txt http://localhost:83/basic > basic_result.txt 2>&1
+    ab -q -k -n $workload -c $workload -g hash_snefru.txt http://localhost:83/hash-snefru > hash_snefru_result.txt 2>&1
 done
 
 echo 'shutdown nginx'
